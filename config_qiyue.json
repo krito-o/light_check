@@ -1,0 +1,47 @@
+{
+    "video_path": "D:\\飞巴灯光状态检测\\视频2\\视频2\\正常起落.MP4",
+    "video_name": "正常起落",
+    "image_size": {"w": 1920, "h": 1080},
+    "fps": 50,
+    "comment": "手持起落视频,灯随设备移动。两个ROI:upper(上方吊起位,14-19s入槽后闪烁)、lower(下方常驻位,全程闪烁)。每ROI独立状态机。信号提取用亮像素均值+面积门。",
+
+    "roi_list": [
+        {
+            "name": "light_upper",
+            "norm": {"X": 55.55806015484384, "Y": 37.53652077422427, "W": 3.7658712685500175, "H": 6.427086964992047},
+            "expected": "flashing"
+        },
+        {
+            "name": "light_lower",
+            "norm": {"X": 45.68357587998136, "Y": 69.22913560022923, "W": 6.243273030967523, "H": 9.513558904331468},
+            "expected": "flashing"
+        }
+    ],
+
+    "skip_enter": false,
+    "enter_threshold": 30.0,
+    "enter_frames": 10,
+    "init_frames": 100,
+    "alpha": 0.05,
+
+    "span_size": 150,
+    "span_step": 25,
+    "window_size": 40,
+    "confirm_spans": 2,
+    "leave_check": false,
+
+    "classifier": {
+        "on_threshold": 5.0,
+        "osc_min": 6,
+        "min_sep": 4.0,
+        "smooth_kernel": 5,
+        "lit_thr": 15.0,
+        "area_min": 150.0,
+        "lit_ge": 5.0,
+        "lit_ratio_min": 0.15
+    },
+
+    "show": true,
+    "save_annotated": false,
+    "log_dir": "logs"
+}
