@@ -1,0 +1,44 @@
+{
+    "video_path": "D:\\飞巴灯光状态检测\\视频\\视频\\正常起落-近点.MP4",
+    "video_name": "正常起落-近点",
+    "image_size": {"w": 1920, "h": 1080},
+    "fps": 50,
+    "comment": "45s后片段含完整入槽+灯光正常闪烁。入槽检测用亮度法(灯ROI灰度偏离空槽基线)，不依赖灯亮。",
+
+    "roi_list": [
+        {
+            "name": "light",
+            "norm": {"X": 45.2352116242279, "Y": 42.4515555373953, "W": 3.2353604790696773, "H": 4.5972819162943},
+            "expected": "flashing"
+        }
+    ],
+
+    "skip_enter": false,
+    "enter_method": "brightness",
+    "enter_threshold": 30.0,
+    "enter_frames": 10,
+    "init_frames": 100,
+    "alpha": 0.05,
+    "enter_brightness": {
+        "margin": 15.0,
+        "baseline_win": 300,
+        "percentile": 5.0
+    },
+
+    "span_size": 150,
+    "span_step": 25,
+    "window_size": 40,
+    "confirm_spans": 2,
+    "leave_check": true,
+
+    "classifier": {
+        "on_threshold": 5.0,
+        "osc_min": 6,
+        "min_sep": 4.0,
+        "smooth_kernel": 5
+    },
+
+    "show": true,
+    "save_annotated": false,
+    "log_dir": "logs"
+}
