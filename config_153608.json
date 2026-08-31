@@ -1,0 +1,74 @@
+{
+    "video_path": "D:\\飞巴灯光状态检测\\视频3\\20260807-153608.mp4",
+    "video_name": "153608",
+    "image_size": {
+        "w": 1920,
+        "h": 1080
+    },
+    "fps": 50,
+    "comment": "固定摄像头现场监控。3个槽,设备依次入槽1(3s)→出(11s)→入槽2(27s)→出(36s)→入槽3(53s)→出(63s),全程正常闪烁。验证多次出入槽的reset/re-enter。slot2坐标已修正(Y=59.99)。",
+    "roi_list": [
+        {
+            "name": "slot1",
+            "norm": {
+                "X": 54.7294656616835,
+                "Y": 63.12686658584023,
+                "W": 2.424409986211455,
+                "H": 2.0490459628453905
+            },
+            "expected": "flashing"
+        },
+        {
+            "name": "slot2",
+            "norm": {
+                "X": 49.77717088621215,
+                "Y": 59.9925093934457,
+                "W": 2.144010075854737,
+                "H": 1.920403710065265
+            },
+            "expected": "flashing"
+        },
+        {
+            "name": "slot3",
+            "norm": {
+                "X": 46.10415387473828,
+                "Y": 57.66892504631467,
+                "W": 1.827445839578303,
+                "H": 1.7562592912552286
+            },
+            "expected": "flashing"
+        }
+    ],
+    "skip_enter": false,
+    "enter_method": "area",
+    "enter_threshold": 30.0,
+    "enter_frames": 25,
+    "init_frames": 100,
+    "alpha": 0.05,
+    "enter_area": {
+        "area_thr": 100.0,
+        "win": 15,
+        "ratio": 0.6,
+        "leave_ratio": 0.4,
+        "leave_drop_ratio": 0.4
+    },
+    "span_size": 150,
+    "span_step": 25,
+    "window_size": 40,
+    "confirm_spans": 2,
+    "leave_check": true,
+    "classifier": {
+        "on_threshold": 5.0,
+        "osc_min": 6,
+        "min_sep": 3.0,
+        "smooth_kernel": 5,
+        "lit_thr": 15.0,
+        "area_min": 150.0,
+        "lit_ge": 5.0,
+        "lit_ratio_min": 0.15,
+        "gray_thr": 80.0
+    },
+    "show": false,
+    "save_annotated": true,
+    "log_dir": "logs"
+}
