@@ -1,0 +1,43 @@
+{
+    "video_path": "D:\\飞巴灯光状态检测\\视频\\视频\\异常-灯不亮.MP4",
+    "video_name": "异常-灯不亮",
+    "image_size": {"w": 1920, "h": 1080},
+    "fps": 50,
+    "comment": "手持手机拍摄，9秒(450帧)后画面稳定。测试：正常闪烁 + 灯不亮。",
+
+    "roi_list": [
+        {
+            "name": "normal",
+            "norm": {"X": 42.67287900501546, "Y": 79.55408960460345, "W": 3.3486646257007626, "H": 5.347773262889276},
+            "expected": "flashing"
+        },
+        {
+            "name": "fault_off",
+            "norm": {"X": 45.851272548053466, "Y": 63.6116711982539, "W": 2.7810943501583103, "H": 3.733351145790694},
+            "expected": "off"
+        }
+    ],
+
+    "skip_enter": true,
+    "enter_threshold": 30.0,
+    "enter_frames": 10,
+    "init_frames": 100,
+    "alpha": 0.05,
+
+    "span_size": 150,
+    "span_step": 25,
+    "window_size": 40,
+    "confirm_spans": 2,
+    "leave_check": false,
+
+    "classifier": {
+        "on_threshold": 5.0,
+        "osc_min": 6,
+        "min_sep": 4.0,
+        "smooth_kernel": 5
+    },
+
+    "show": true,
+    "save_annotated": false,
+    "log_dir": "logs"
+}
