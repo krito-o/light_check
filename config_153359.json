@@ -1,0 +1,64 @@
+{
+    "video_path": "D:\\飞巴灯光状态检测\\视频3\\20260807-153359.mp4",
+    "video_name": "153359",
+    "image_size": {
+        "w": 1920,
+        "h": 1080
+    },
+    "fps": 50,
+    "comment": "固定摄像头现场监控。slot1一开始在槽正常闪烁,7s出槽,25s入slot2正常闪烁。面积法入槽+出槽检测,每ROI独立状态机。",
+    "roi_list": [
+        {
+            "name": "slot1",
+            "norm": {
+                "X": 56.51882494334715,
+                "Y": 68.97953695208426,
+                "W": 2.4763834663698017,
+                "H": 2.011000016585805
+            },
+            "expected": "flashing"
+        },
+        {
+            "name": "slot2",
+            "norm": {
+                "X": 51.425809573380086,
+                "Y": 65.22414075167308,
+                "W": 2.4763834663698017,
+                "H": 2.011000016585805
+            },
+            "expected": "flashing"
+        }
+    ],
+    "skip_enter": false,
+    "enter_method": "area",
+    "enter_threshold": 30.0,
+    "enter_frames": 25,
+    "init_frames": 100,
+    "alpha": 0.05,
+    "enter_area": {
+        "area_thr": 100.0,
+        "win": 15,
+        "ratio": 0.6,
+        "leave_ratio": 0.4,
+        "leave_drop_ratio": 0.4
+    },
+    "span_size": 150,
+    "span_step": 25,
+    "window_size": 40,
+    "confirm_spans": 2,
+    "leave_check": true,
+    "classifier": {
+        "on_threshold": 5.0,
+        "osc_min": 6,
+        "min_sep": 3.0,
+        "smooth_kernel": 5,
+        "lit_thr": 15.0,
+        "area_min": 150.0,
+        "lit_ge": 5.0,
+        "lit_ratio_min": 0.15,
+        "gray_thr": 80.0
+    },
+    "show": false,
+    "save_annotated": true,
+    "log_dir": "logs"
+}
