@@ -1,0 +1,48 @@
+{
+    "video_path": "D:\\飞巴灯光状态检测\\视频2\\视频2\\常亮.MP4",
+    "video_name": "常亮",
+    "image_size": {"w": 1920, "h": 1080},
+    "fps": 50,
+    "comment": "0-18s移槽入槽过程,18s后灯异常常亮(故障)。单ROI,每ROI独立状态机。信号提取用亮像素均值+面积门。",
+
+    "roi_list": [
+        {
+            "name": "light",
+            "norm": {"X": 51.309122823158596, "Y": 49.27531188543197, "W": 2.988979557590704, "H": 4.955511676005555},
+            "expected": "steady_on"
+        }
+    ],
+
+    "skip_enter": false,
+    "enter_method": "brightness",
+    "enter_threshold": 30.0,
+    "enter_frames": 10,
+    "init_frames": 100,
+    "alpha": 0.05,
+    "enter_brightness": {
+        "margin": 15.0,
+        "baseline_win": 300,
+        "percentile": 5.0
+    },
+
+    "span_size": 150,
+    "span_step": 25,
+    "window_size": 40,
+    "confirm_spans": 2,
+    "leave_check": false,
+
+    "classifier": {
+        "on_threshold": 5.0,
+        "osc_min": 6,
+        "min_sep": 4.0,
+        "smooth_kernel": 5,
+        "lit_thr": 15.0,
+        "area_min": 150.0,
+        "lit_ge": 5.0,
+        "lit_ratio_min": 0.15
+    },
+
+    "show": true,
+    "save_annotated": false,
+    "log_dir": "logs"
+}
